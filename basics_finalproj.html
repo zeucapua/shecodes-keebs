@@ -1,0 +1,175 @@
+<!-- Required HTML Elements: span, em -->
+<html>
+    <header>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Keebs by Zeu | SheCodes Basics Project</title>
+        <style>
+            html {
+                font-family: monospace;
+                background-color: black;
+            }
+            hr {
+                border: 2px dashed black;
+            }
+            h1 {
+                color: white;
+                text-shadow: 5px 5px 10px black;
+            }
+            p {
+                line-height: 2em;
+            }
+            ul {
+                list-style: none;
+                display: inline-flex;
+            }
+            button {
+                background-color: crimson;
+                font-size: large;
+                font-family: 'Courier New', Courier, monospace;
+                border: none;
+                border-radius: 20px;
+                padding: 5px 20px;
+                margin: 10px;
+                color: white;
+                box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+                transition: all 200ms ease-in-out;
+            }
+            button:hover {
+                cursor: pointer;
+                background-color: rgba(0, 0, 0, 0.5);
+            }
+            .container {
+                border-radius: 30px;
+                padding: 100px;
+                background-image: linear-gradient(to bottom right, plum, sienna);
+            }
+            .banner {
+                max-width: 500px;
+                border-radius: 10px;
+                margin-top: 50px;
+                box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+            }
+            .headerdiv {
+                display: flex;
+            }
+            .bannertext {
+                display: inline;
+                font-weight: 500;
+                font-size: x-large;
+                padding-left: 50px;
+                justify-content: center;
+            }
+            .kbddisplay {
+                justify-content: center;
+            }
+            .kbdtype {
+                display: block;
+                margin-left: 30px;
+                max-width: 500px;
+                border-radius: 20px;
+            }
+        </style> 
+    </header>
+
+    <body>
+        <div class="container">
+            <div class="headerdiv">
+                <a href="https://www.reddit.com/r/MechanicalKeyboards/comments/vvqs1v/ic_mw_aschente_gb_july_18th_first_day_card/?utm_source=share&utm_medium=web2x&context=3">
+                    <img class="banner" src="https://i.redd.it/1fwh0ybmlqa91.png" />
+                </a>
+                <div class="bannertext">
+                    <h1>Mechanical Keyboards.</h1>
+                    <p>Keyboards are used <strong>everyday</strong> and people can <em>customize and elevate</em> their typing experience using a custom mechanical keyboard.</p>
+                    <p style="color: white;">Coded with love by <a href="https://github.com/zeucapua">Zeu Capua</a></p>
+                </div>
+            </div>
+            <br />
+            <br />
+            <hr />
+            <div style="display:flex">
+                <div style="display: inline; margin-top: 20px; margin-left: 75px; margin-right: 100px;">
+                    <h1 class="sizeTitle">Placeholder</h1>
+                    <p class="sizeDesc">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
+                        aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+                        Excepteur sint occaecat cupidatat non proident, 
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+                <div class="kbddisplay">
+                    <ul>    
+                        <li>
+                            <button class="kbdfull">Full Size</button>
+                        </li>
+                        <li>
+                            <button class="kbdtkl">Tenkeyless (TKL)</button>
+                        </li>
+                        <li>
+                            <button class="kbd60">60%</button>
+                        </li>
+                    </ul>
+                    <img class="kbdtype" />
+                </div>
+            
+            </div>
+            <br />
+            <div style="display: flex; justify-content: center;">
+                <button class="test" style="color: black; background-color: mistyrose;">Should I get one?</button>
+            </div>
+        </div>
+
+        <script>
+            let kbdtkl = "https://i.imgur.com/Xvk0Eey.jpg";
+            let kbdfull = "https://i.redd.it/ermw74st0ua91.jpg";
+            let kbd60 = "https://i.imgur.com/VMCDPgL.jpg";
+
+            // elements and their default values
+            let kbdimg = document.querySelector(".kbdtype");
+            let sizeTitle = document.querySelector(".sizeTitle");
+            let sizeDesc = document.querySelector(".sizeDesc");
+            kbdimg.src = kbd60;
+
+            function changeToFull() { 
+                kbdimg.src = kbdfull; 
+                sizeTitle.innerHTML = "Full Size";
+                sizeDesc.innerHTML = '<span style="color: white">Full-sized keyboards</span> (also called 100%) contain all 104 keys including the number pad, arrow keys, function row and home cluster. This size keyboard is what is used as a reference for the other keyboards referred to by the % of keys they have compared to the 100% full-sized keyboard.';
+            }
+            function changeToTKL() { 
+                kbdimg.src = kbdtkl; 
+                sizeTitle.innerHTML = "Tenkeyless (TKL)";
+                sizeDesc.innerHTML = '<span style="color: white">Tenkeyless keyboards</span> have 87 keys. They’re basically the same as a full-sized keyboard minus the number keypad, making it a bit smaller than the full-sized.'
+            }
+            function changeTo60() { 
+                kbdimg.src = kbd60; 
+                sizeTitle.innerHTML = "60 Percent (60%)";
+                sizeDesc.innerHTML = '<span style="color: white">60% keyboards</span> have 58-65 keys and are the most common “compact” size! No number pad, No arrow keys, No function row!';
+            }
+            function kdbtest() {
+                let name = prompt("What is your name?");
+                let customize = prompt("Do you want to customize your keyboard?");
+                if (customize.toLowerCase() == "yes") {
+                    alert("You should definitely get a mechanical keyboard " + name + "!");
+                }
+                else {
+                    alert("Then maybe don't get a mechanical keyboard.");
+                }
+            }
+
+
+            let btnFull = document.querySelector(".kbdfull");
+            let btnTKL = document.querySelector(".kbdtkl");
+            let btn60 = document.querySelector(".kbd60");
+            let btnTest = document.querySelector(".test");
+
+            btnFull.addEventListener("click", changeToFull);
+            btnTKL.addEventListener("click", changeToTKL);
+            btn60.addEventListener("click", changeTo60);
+            btnTest.addEventListener("click", kdbtest);
+        </script>
+    </body>
+</html>
